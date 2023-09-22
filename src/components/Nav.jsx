@@ -19,7 +19,7 @@ const Nav = () => {
     const submitSearch=(e)=>{
         
         e.preventDefault();
-        if(textInput == ""){
+        if(textInput === ""){
             dispatch({type: "CLEAR_SEARCHED"})
             return;
         }

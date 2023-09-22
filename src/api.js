@@ -1,4 +1,5 @@
 const base_url = 'https://api.rawg.io/api/';
+const api_key = `key=${process.env.REACT_APP_RAWG_API_KEY}`
 
 //Getting the date
 const getCurrentMonth = () => {
@@ -35,14 +36,14 @@ const upcoming_games = `games?dates=${currentDate},${nextYear}&ordering=-added&p
 const new_games = `games?dates=${lastYear},${currentDate}&ordering=-released&page_size=6`;
 
 
-export const popularGamesUrl = () => `${base_url}${popular_games}`;
-export const upcomingGamesUrl = () => `${base_url}${upcoming_games}`;
-export const newGamesUrl = () => `${base_url}${new_games}`;
+export const popularGamesUrl = () => `${base_url}${popular_games}&${api_key}`;
+export const upcomingGamesUrl = () => `${base_url}${upcoming_games}&${api_key}`;
+export const newGamesUrl = () => `${base_url}${new_games}&${api_key}`;
 //Game details
-export const gameDetailsUrl =  (game_id)=>`${base_url}games/${game_id}` 
+export const gameDetailsUrl =  (game_id)=>`${base_url}games/${game_id}?${api_key}` 
 //game screenshots
-export const gameScreenshotUrl =  (game_id)=>`${base_url}games/${game_id}/screenshots` 
+export const gameScreenshotUrl =  (game_id)=>`${base_url}games/${game_id}/screenshots?${api_key}` 
 // getCurrentMonth(); //to run this you need to use node js  in terminal
 
 //searched game
-export const searchGameUrl = (game_name) => `${base_url}games?search=${game_name}&page_size=5`
+export const searchGameUrl = (game_name) => `${base_url}games?search=${game_name}&page_size=5&${api_key}`
